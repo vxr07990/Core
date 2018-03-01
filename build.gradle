@@ -5,7 +5,7 @@ configurations {
 }
  
 dependencies {
-deployerJars "org.hasnat.php-build-plugin"
+deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
     compile gradleApi()
     compile localGroovy()
 
