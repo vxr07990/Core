@@ -35,6 +35,9 @@ task wrapper(type: Wrapper) {
 
 group='plugin.org.swissphpfriends'
 version='0.1-SNAPSHOT'
+plugins {
+  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
+}
 buildscript {
   repositories {
 
