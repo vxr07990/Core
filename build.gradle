@@ -1,7 +1,11 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
-
+configurations {
+    deployerJars
+}
+ 
 dependencies {
+deployerJars "org.hasnat.php-build-plugin"
     compile gradleApi()
     compile localGroovy()
 
