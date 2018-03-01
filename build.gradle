@@ -19,7 +19,7 @@ repositories {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "https://plugins.gradle.org/m2/")
+            repository(url: "https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/")
         }
     }
 }
@@ -52,7 +52,6 @@ buildscript {
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
   }
 }
-
 
 apply plugin: "org.hasnat.php-build-plugin"
 
