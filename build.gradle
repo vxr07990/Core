@@ -46,9 +46,7 @@ buildscript {
     }
 
   }
-plugins {
-  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
-}
+
   dependencies {
 
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
