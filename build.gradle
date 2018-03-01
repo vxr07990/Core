@@ -38,9 +38,7 @@ group='plugin.org.swissphpfriends'
 version='0.1-SNAPSHOT'
 
 buildscript {
-plugins {
-  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
-}
+
   repositories {
 
     maven {
@@ -53,5 +51,9 @@ plugins {
   }
 }
 
-
+allprojects {
+plugins {
+  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
+}
 apply plugin: "org.hasnat.php-build-plugin"
+}
