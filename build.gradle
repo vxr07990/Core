@@ -5,7 +5,7 @@ configurations {
 }
  
 dependencies {
-deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
+deployerJars "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
     compile gradleApi()
     compile localGroovy()
 
