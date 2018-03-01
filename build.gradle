@@ -32,7 +32,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
-group='plugin.org.swissphpfriends'
+group='gradle.plugin.org.swissphpfriends'
 version='0.1-SNAPSHOT'
 
 buildscript {
