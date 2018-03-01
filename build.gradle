@@ -19,7 +19,7 @@ repositories {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "https://plugins.gradle.org/m2/")
+            repository(url: "https://plugins.gradle.org/m2/gradle/plugin/org/swissphpfriends/php-build-plugin/0.1-SNAPSHOT/")
         }
     }
 }
