@@ -4,12 +4,7 @@ configurations {
     deployerJars
 }
  
-dependencies {
- classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
-    compile gradleApi()
-    compile localGroovy()
 
-}
 
 repositories {
     mavenCentral()
@@ -22,7 +17,12 @@ uploadArchives {
         }
     }
 }
+dependencies {
+classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+    compile gradleApi()
+    compile localGroovy()
 
+}
 test {
     testLogging {
         events "passed", "skipped", "failed"
