@@ -6,7 +6,7 @@ mavenCentral()
     }
   }
   dependencies {
-classpath "org.apache.maven.plugins.maven-compiler-plugin"
+
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
   }
 }
