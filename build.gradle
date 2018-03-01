@@ -19,7 +19,7 @@ repositories {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "https://repo.maven.apache.org")
+            repository(url: "https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin")
         }
     }
 }
