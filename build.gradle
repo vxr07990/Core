@@ -5,7 +5,7 @@ configurations {
 }
  
 dependencies {
-deployerJars "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+ classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
     compile gradleApi()
     compile localGroovy()
 
@@ -50,4 +50,4 @@ buildscript {
 }
 
 
-apply plugin: "php-build-plugin"
+apply plugin: "org.hasnat.php-build-plugin"
