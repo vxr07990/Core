@@ -4,6 +4,7 @@ apply plugin: 'maven'
 dependencies {
     compile gradleApi()
     compile localGroovy()
+classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
 }
 
 repositories {
