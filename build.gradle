@@ -44,6 +44,9 @@ buildscript {
     maven {
       url "https://plugins.gradle.org/m2/"
     }
+plugins {
+  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
+}
   }
   dependencies {
 
@@ -51,9 +54,6 @@ buildscript {
   }
 }
 
-allprojects {
-plugins {
-  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
-}
+
 apply plugin: "org.hasnat.php-build-plugin"
-}
+
