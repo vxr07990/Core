@@ -3,7 +3,7 @@ apply plugin: 'maven'
 
  
 dependencies {
-    deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
+    deployerJars "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
 }
 
 repositories {
@@ -34,7 +34,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
-group='gradle.plugin.org.swissphpfriends'
+group='plugin.org.swissphpfriends'
 version='0.1-SNAPSHOT'
 
 buildscript {
