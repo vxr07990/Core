@@ -21,7 +21,7 @@ dependencies {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "https://repo.maven.apache.org/maven2")
+            repository(url: "https://plugins.gradle.org/m2/")
         }
     }
 }
