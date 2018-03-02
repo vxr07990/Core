@@ -1,17 +1,19 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
-
- 
-dependencies {
-    deployerJars "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+configurations {
+    deployerJars
 }
+ 
+
+   
+
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
- 
+  deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
     compile gradleApi()
     compile localGroovy()
 
