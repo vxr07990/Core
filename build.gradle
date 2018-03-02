@@ -13,7 +13,7 @@ dependencies {
 
 uploadArchives {
     repositories.mavenDeployer {
-        configuration = configurations.deployerJars
+        
         repository(url: "https://plugins.gradle.org/m2/") 
     }
 }
