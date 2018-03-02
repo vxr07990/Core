@@ -1,3 +1,38 @@
+pply plugin: 'groovy'
+apply plugin: 'maven'
+configurations {
+    deployerJars
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
+    compile gradleApi()
+    compile localGroovy()
+
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "https://repo.maven.apache.org/")
+        }
+    }
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
+group=''org.swissphpfriends''
+version='0.1-SNAPSHOT'
 buildscript {
   repositories {
     maven {
