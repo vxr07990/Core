@@ -21,7 +21,7 @@ dependencies {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "https://plugins.gradle.org/m2/")
+            repository(url: "ttps://repo.maven.apache.org/")
         }
     }
 }
@@ -36,7 +36,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
-group='gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT'
+group=''org.swissphpfriends''
 version='0.1-SNAPSHOT'
 
 buildscript {
