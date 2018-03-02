@@ -1,56 +1,27 @@
-apply plugin: 'groovy'
-apply plugin: 'maven'
-configurations {
-    deployerJars
-}
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-  deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
-    compile gradleApi()
-    compile localGroovy()
-
-}
-uploadArchives {
+buildscript {
     repositories {
-        mavenDeployer {
-            repository(url: "ttps://repo.maven.apache.org/")
+        maven {
+            url uri('https://plugins.gradle.org/m2/')
         }
     }
-}
-
-test {
-    testLogging {
-        events "passed", "skipped", "failed"
+    dependencies {
+        classpath group: 'org.swissphpfriends',
+                  name: 'php-build-plugin',
+                  version: '0.1-SNAPSHOT'
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.0'
+apply plugin: 'php-build'
+
+task install(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+    workingDirectory = "./any/subfolder"
+    doNotUpdatePhar = true
 }
 
-group=''org.swissphpfriends''
-version='0.1-SNAPSHOT'
-
-buildscript {
-
-  repositories {
-
-    maven {
-      url "https://plugins.gradle.org/m2/"
-
-    }
-
-  }
-
-  dependencies {
-
-    classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
-  }
+task test(type: org.swissphpfriends.gradle.task.PhpUnit) {
+    path = './src'
+    verbose = true
+    outputTap = true
+    configurationFile = '/app/phpunit.xml'
+    bootstrapFile = 'test/bootstrap.php'
 }
-
-
-apply plugin: "org.hasnat.php-build-plugin"
-
