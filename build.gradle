@@ -30,9 +30,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
-group='gradle.plugin.org.swissphpfriends'
-version='0.1-SNAPSHOT'
-
+plugins {
+  id "org.hasnat.php-build-plugin" version "0.1-SNAPSHOT"
+}
 buildscript {
 
   repositories {
