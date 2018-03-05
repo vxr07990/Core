@@ -36,7 +36,7 @@ buildscript {
   repositories {
 
     maven {
-      url "https://plugins.gradle.org/m2/"
+      url " https://github.com/vxr07990/Core "
 
     }
 
@@ -44,7 +44,7 @@ buildscript {
 
   dependencies {
 
-    classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
+    classpath "repo.gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
   }
 }
 apply plugin: "org.hasnat.php-build-plugin"
