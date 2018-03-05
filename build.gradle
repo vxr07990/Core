@@ -1,3 +1,10 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
 
 configurations {
     deployerJars
@@ -33,7 +40,20 @@ buildscript {
     classpath "gradle.plugin.org.swissphpfriends:php-build-plugin:0.1-SNAPSHOT"
   }
 }
-
-
 apply plugin: "org.hasnat.php-build-plugin"
+
+task install(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+    workingDirectory = "./any/subfolder"
+    doNotUpdatePhar = true
+}
+
+task test(type: org.swissphpfriends.gradle.task.PhpUnit) {
+    path = './src'
+    verbose = true
+    outputTap = true
+    configurationFile = '/app/phpunit.xml'
+    bootstrapFile = 'test/bootstrap.php'
+}
+
+
 
