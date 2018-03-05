@@ -20,8 +20,7 @@ dependencies {
 
 uploadArchives {
     repositories.mavenDeployer {
-        
-        repository(url: "https://plugins.gradle.org/m2/") 
+repository(url: uri('../repo'))) 
     }
 }
 buildscript {
