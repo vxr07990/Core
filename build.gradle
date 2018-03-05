@@ -50,5 +50,17 @@ buildscript {
 apply plugin: "org.hasnat.php-build-plugin"
 
 
+task install(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+    workingDirectory = "./any/subfolder"
+    doNotUpdatePhar = true
+}
+
+task test(type: org.swissphpfriends.gradle.task.PhpUnit) {
+    path = './src'
+    verbose = true
+    outputTap = true
+    configurationFile = '/app/phpunit.xml'
+    bootstrapFile = 'test/bootstrap.php'
+}
 
 
