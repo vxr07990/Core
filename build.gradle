@@ -6,17 +6,13 @@ dependencies {
     compile localGroovy()
 }
 
-configurations {
-    deployerJars
-}
+
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
-}
+
 
 uploadArchives {
     repositories.mavenDeployer {
