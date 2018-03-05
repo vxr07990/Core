@@ -13,7 +13,8 @@ repositories {
 uploadArchives {
     repositories {
         mavenDeployer {
-(url: uri('../repo'))        }
+            repository(url: uri('../repo')))
+        }
     }
 }
 
