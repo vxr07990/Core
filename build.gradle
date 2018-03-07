@@ -98,14 +98,3 @@ buildscript {
 
 apply plugin: "org.hasnat.php-build-plugin"
 
-task unzip(type: Copy) {
-  File zipFile = file('/var/lib/jenkins/workspace/repo/gradle/org/swissphpfriends/php-build-plugin/0.1-SNAPSHOT/php-build-plugin-0.1-SNAPSHOT.jar')
-    println ' drawable is exist : '
-    println zipFile.exists()
-    from zipTree(zipFile)
-    println ' unzip start'
-    into '/app/src/main/res/'
-    fileMode 0777
-    dirMode 0777
-    println 'Unzip drawable hdpi files...'
-}
