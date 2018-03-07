@@ -99,8 +99,7 @@ buildscript {
 apply plugin: "org.hasnat.php-build-plugin"
 
 task unzip(type: Copy) {
-  File zipFile = file('/var/lib/jenkins/workspace/repo org/swissphpfriends/php-plugin/0.1-SNAPSHOT/php-plugin-0.1-20180307.060437-38.jar
-')
+  File zipFile = file('/var/lib/jenkins/workspace/repo/gradle/org/swissphpfriends/php-build-plugin/0.1-SNAPSHOT/php-build-plugin-0.1-SNAPSHOT.jar')
     println ' drawable is exist : '
     println zipFile.exists()
     from zipTree(zipFile)
