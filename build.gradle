@@ -74,7 +74,7 @@ task unzip(type: Copy) {
     from zipTree(zipFile)
     into outputDir
 }
-task install(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+task install1(type: org.swissphpfriends.gradle.task.ComposerInstall) {
     workingDirectory = "./any/subfolder"
     doNotUpdatePhar = true
 }
