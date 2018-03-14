@@ -100,9 +100,8 @@ apply plugin: "org.hasnat.php-build-plugin"
 task unzip(type: Copy) {
     def zipFile = file('repo/gradle/org/swissphpfriends/php-build-plugin/0.1-SNAPSHOT/target/php-build-plugin-0.1-SNAPSHOT.jar')
 
-    def outputDir = file('var/lib/jenkins/workspace/newplugin/repo/gradle/org/swissphpfriends/php-build-plugin/0.1-SNAPSHOT/target/')
+    def outputDir = file('/var/lib/jenkins/workspace/newplugin/')
  
     from zipTree(zipFile)
     into outputDir
 }
-
