@@ -1,31 +1,59 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
 
 dependencies {
     compile gradleApi()
     compile localGroovy()
 }
 
-apply plugin: 'maven'
-
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testCompile 'junit:junit:4.11'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
 }
-apply plugin: 'signing'
-apply plugin: 'license'
 
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
+group='org.swissphpfriends'
+version='0.1-SNAPSHOT'
 buildscript {
     repositories {
-        mavenCentral()
+        maven {
+            url uri('../repo')
+        }
     }
-
     dependencies {
-        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.7.0'
+        classpath group: 'org.swissphpfriends',
+                  name: 'php-build-plugin',
+                  version: '0.1-SNAPSHOT'
     }
 }
 
-group = 'com.eltrino.gradle'
-version = '1.0'
+apply plugin: 'php-build'
+
+task install(type: org.swissphpfriends.gradle.task.ComposerInstall) {
+    workingDirectory = "./any/subfolder"
+    doNotUpdatePhar = true
+}
+
+task test(type: org.swissphpfriends.gradle.task.PhpUnit) {
+    path = './src'
+    verbose = true
+    outputTap = true
+    configurationFile = '/app/phpunit.xml'
+    bootstrapFile = 'test/bootstrap.php'
+}
