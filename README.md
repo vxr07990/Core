@@ -1,74 +1,58 @@
-# Gradle PHP Plugin
+# Gradle php-build-plugin
 
-This plugin provides basic tasks for PHP project. Currently this list includes
+***A gradle plugin for building php applications***
 
- - Syntax verification of all files in project
- - PHPMD execution
- - Run test through PHPUnit
+[![Build Status](https://travis-ci.org/swiss-php-friends/gradle-php-build-plugin.svg?branch=master)](https://travis-ci.org/swiss-php-friends/gradle-php-build-plugin)
+
+## Featues
+
+- Automatic composer installation and/or update
+- PHPUnit
+- *More features in development...*
 
 ## Usage
 
-### Loading Plugin
-
-Currently plugin not hosted anywere so you wiull need to install it in local Maven repository 
-
-```
-gradle build install
-```
-
-Add Maven Local repository 
-
-```
+```gradle
 buildscript {
     repositories {
-        mavenLocal()
-    }
-}
-```
-
-Add plugin dependency
-
-```
-buildscript {
-    dependencies {
-        classpath group: 'com.eltrino.gradle', name: 'php-plugin', version: '1.0'
-    }
-}
-```
-
-Apply plugin itself
-
-```
-apply plugin: 'com.eltrino.gradle.php'
-```
-
-### Configuration
-
-Specify where all PHP source could be found. Its done in same way as for Java or Scala source code. 
-
-```
-sourceSets {
-    main {
-        php {
-            srcDir '.'
-            include '**/*.php'
+        maven {
+            url uri('../repo')
         }
     }
+    dependencies {
+        classpath group: 'org.swissphpfriends',
+                name: 'php-build-plugin',
+                version: '0.1-SNAPSHOT'
+    }
+}
+
+apply plugin: 'php-build'
+
+task test(type: org.swissphpfriends.gradle.task.PhpUnit) {
+    path = './src'
+    verbose = true
+    outputTap = true
 }
 ```
+Please see [documentation](doc/) for full configuration options and more examples...
 
+## Contribution
+If you found a bug or have a feature request, please [submit an issue](https://github.com/swiss-php-friends/gradle-php-build-plugin/issues) or propose a Pull Request. Please write tests for your contributions...
+
+## Development
+
+**Build JAR**
+```bash
+cd plugin
+../gradlew clean uploadArchives
 ```
-//optional
-php{
-    phpExecutableLocation = '{your-path-to-php(.exe)}' // defaults to 'php'
-    phpUnitExecutableLocation='{your-path-to-phpunit(.bat)}' // defaults to 'vendor/bin/phpunit'
-    pmdExecutableLocation = '{your-path-to-phpmd(.bat)}' // defaults to 'vendor/bin/phpmd'
-    pmdReportFile = '{your-path-to-pmd.xml}' // defaults to 'pmd.xml'
-}
+
+**Run Tests**
+```bash
+cd plugin
+../gradlew clean test
 ```
+The tests are also executed on every Pull Request and for every branch by [Travis CI](https://travis-ci.org/swiss-php-friends/gradle-php-build-plugin).
 
-## Todo
-
-- Add more tasks ...
-- Support exclude option for tasks
-- Cover functionality by tests
+## License
+This project, including all sourcecode and other documents is licensed under MIT. For details, see [LICENSE](LICENSE).
